@@ -27,4 +27,28 @@ export const TaskService = {
     tasks.push(newTask);
     return newTask;
   },
+
+  patchTask: (id: string, title?: string, status?: "PENDING" | "COMPLETED") => {
+    const task = tasks.find((task) => task.id === id);
+
+    if (!task) {
+      throw new Error("Task not found");
+    }
+
+    task.title = title || task.title;
+    task.status = status || task.status;
+
+    return task;
+  },
+
+  delete: (id: string) => {
+    const index = tasks.findIndex((task) => task.id === id);
+
+    if (index === -1) {
+      throw new Error("Task not found");
+    }
+
+    tasks.splice(index, 1);
+    return { id };
+  },
 };
