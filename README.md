@@ -112,6 +112,26 @@ src/
 }
 ```
 
+## ✅ Validation Checklist
+
+- [x] Created basic folder structure (src/controllers, src/routes, etc.)
+- [x] Configured TypeScript (tsconfig.json)
+- [x] Initialized Express app (app.ts + server.ts)
+- [x] Defined Task interface (types/task.type.ts)
+- [x] Implemented in-memory "database" with mock tasks
+- [x] GET /tasks - List all tasks
+- [x] POST /tasks - Create new task with validation
+- [ ] PATCH /tasks/:id - Update task status
+- [ ] DELETE /tasks/:id - Remove task
+- [ ] Request validation (validateTask), Error handling middleware
+- [ ] Request logging
+
+Advanced Features (opcional)
+
+- [ ] Add pagination (limit/offset)
+- [ ] Implement task filtering (?status=DONE)
+- [ ] Add Swagger documentation
+
 ## 🚀 Setup & Execution
 
 ```bash
