@@ -120,9 +120,10 @@ src/
 - [x] Defined Task interface (types/task.type.ts)
 - [x] Implemented in-memory "database" with mock tasks
 - [x] GET /tasks - List all tasks
+- [ ] GET /tasks/:id - Get single task (404 if not found)
 - [x] POST /tasks - Create new task with validation
-- [ ] PATCH /tasks/:id - Update task status
-- [ ] DELETE /tasks/:id - Remove task
+- [x] PATCH /tasks/:id - Update task status
+- [x] DELETE /tasks/:id - Remove task
 - [ ] Request validation (validateTask), Error handling middleware
 - [ ] Request logging
 
