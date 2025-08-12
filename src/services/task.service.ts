@@ -12,11 +12,16 @@ let tasks: Task[] = [
 export const TaskService = {
   getAll: () => tasks,
 
-  create: (title: string) => {
-    if (!title || title.length < 3) {
-      throw new Error("Title must be at least 3 characters");
-    }
+  getById: (id: string) => {
+    const task = tasks.find((task) => task.id === id);
 
+    if (!task) {
+      return { error: "Task not found", status: 404 };
+    }
+    return { data: task, status: 200 };
+  },
+
+  create: (title: string) => {
     const newTask: Task = {
       id: (tasks.length + 1).toString(),
       title,
