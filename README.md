@@ -120,18 +120,11 @@ src/
 - [x] Defined Task interface (types/task.type.ts)
 - [x] Implemented in-memory "database" with mock tasks
 - [x] GET /tasks - List all tasks
-- [ ] GET /tasks/:id - Get single task (404 if not found)
+- [x] GET /tasks/:id - Get single task (404 if not found)
 - [x] POST /tasks - Create new task with validation
 - [x] PATCH /tasks/:id - Update task status
 - [x] DELETE /tasks/:id - Remove task
-- [ ] Request validation (validateTask), Error handling middleware
-- [ ] Request logging
-
-Advanced Features (opcional)
-
-- [ ] Add pagination (limit/offset)
-- [ ] Implement task filtering (?status=DONE)
-- [ ] Add Swagger documentation
+- [x] Request validation (validateTask), Error handling middleware
 
 ## 🚀 Setup & Execution
 
