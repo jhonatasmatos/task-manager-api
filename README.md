@@ -23,19 +23,15 @@ Implement these task management endpoints:
 GET    /tasks       - List all tasks (support filtering)
 POST   /tasks       - Create new task
 GET    /tasks/:id   - Get single task
-PUT    /tasks/:id   - Full task update
 PATCH  /tasks/:id   - Partial update
 DELETE /tasks/:id   - Delete task
 ```
 
 ### 2. Required Middlewares
 
-| Middleware        | Implementation Details                                                                  |
-| ----------------- | --------------------------------------------------------------------------------------- |
-| validateTaskInput | Validate title (required, min 3 chars) and status (enum: PENDING/IN_PROGRESS/COMPLETED) |
-| logRequest        | Log [TIMESTAMP] METHOD /path to console                                                 |
-| errorHandler      | Standard JSON error format: { error: string, requestId?: string }                       |
-| notFoundHandler   | Return consistent 404 format for unhandled routes                                       |
+| Middleware   | Implementation Details                                                      |
+| ------------ | --------------------------------------------------------------------------- |
+| validateTask | Validate title (required, min 3 chars) and status (enum: PENDING/COMPLETED) |
 
 ### 3. Data Management
 
@@ -44,36 +40,20 @@ let tasks = [
   {
     id: "1",
     title: "Learn middleware",
-    description: "Practice Express middlewares",
     status: "IN_PROGRESS",
     createdAt: "2023-11-20T10:00:00Z",
   },
 ];
 ```
 
-### 4. Advanced Features
-
-Filtering: GET /tasks?status=COMPLETED
-Pagination: GET /tasks?limit=5&offset=0
-Error Types:
-
-```javascript
-interface ApiError {
-  status: 400 | 404 | 500;
-  message: string;
-  details?: object;
-}
-```
-
 ## 📂 Mandatory Project Structure
 
 ```bash
 src/
-├── controllers/
-│ └── tasks.controller.ts # Route handlers
+├── services/
+│ └── tasks.service.ts # Route handlers
 ├── middlewares/
-│ ├── validation.middleware.ts
-│ └── error.middleware.ts
+│ └──validation.middleware.ts
 ├── routes/
 │ └── tasks.route.ts # Router configuration
 ├── types/
@@ -88,29 +68,13 @@ src/
 
    POST: Requires title
 
-   PATCH: Only allows status and description updates
-
-   PUT: Requires all fields
+   PATCH: Only allows status and title updates
 
 2. Error Handling:
 
    400: Include validation error details
 
    404: Standard "Resource not found" message
-
-   500: Log full error server-side, return generic client message
-
-3. Response Format:
-
-```json
-{
-  "data": {} | [],
-  "meta": {
-    "count": 0,
-    "next": "/tasks?offset=10"
-  }
-}
-```
 
 ## ✅ Validation Checklist
 

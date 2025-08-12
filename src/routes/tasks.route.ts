@@ -3,7 +3,7 @@ import { TaskService } from "../services/task.service";
 import {
   validateTaskCreation,
   validateTaskUpdate,
-} from "../middlewares/validateTask";
+} from "../middlewares/validation.middleware";
 
 const router = express.Router();
 
